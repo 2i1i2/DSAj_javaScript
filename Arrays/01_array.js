@@ -21,10 +21,10 @@ class MyArray {
     }
     delete(index){
         const item = this.data[index];
-        this.shiftItems(index);
+        return this.shiftItems(index);
     }
     shiftItems(index){
-       for(let i = index; i < this.length - 1; i++){
+       for(let i = index; i < this.length-1; i++){
         this.data[i] = this.data[i+1];
        }        
     }
@@ -34,5 +34,11 @@ class MyArray {
 const newArray = new MyArray();
 newArray.push(10);
 newArray.push(20);
+newArray.push(30);
+newArray.push(40);
+newArray.push(50);
+newArray.push(60);
+newArray.pop(); // 60 should be remove
+newArray.delete(4); // 59 should be remove
 
 console.log(newArray)
