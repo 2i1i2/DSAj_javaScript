@@ -14,11 +14,11 @@ class BinarySearchTree {
     }
 
     insert(value){
-        const newNode = new Node(value);
+        let newNode = new Node(value);
        if(this.root === null){
          this.root = newNode;
        }else{
-        const currentNode = this.root;
+        let currentNode = this.root;
         while(true){
             if( value < currentNode.value){
              // left
@@ -54,10 +54,10 @@ JSON.stringify(traverse(tree.root));
 
 function traverse(node){
     const tree = {
-        value:node.value
+        value: node.value
     }
 
-    tree.left = node.value === null ? null : traverse(node.left);
-    tree.right = node.value === null ? null : traverse(node.right);
+    tree.left = node.left === null ? null : traverse(node.left);
+    tree.right = node.right === null ? null : traverse(node.right);
     return tree;
 }

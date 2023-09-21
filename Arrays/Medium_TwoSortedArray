@@ -1,0 +1,62 @@
+const nums1 = [3];
+const nums2 = [-2, -1];
+
+// sort values from user define
+
+
+
+
+var findMedianSortedArrays = function(nums1, nums2) {
+    // console.log(arr1, arr2);
+   const basket = [];
+   for(let n1 = 0; n1 < nums1.length; n1++){
+      basket.push(nums1[n1]);
+   }
+
+   for(let n2 = 0; n2 < nums2.length; n2++){
+      basket.push(nums2[n2]);
+   }
+     
+   return userDefinedSort(basket)
+};
+
+function userDefinedSort(basket){
+ //console.log(basket);
+ let dub = [];
+ for(let i = 0; i < basket.length; i++){
+  for(let j = i+1; j< basket.length; j++){
+   if(basket[i] > basket[j]){
+    let temp = basket[i];
+    basket[i] = basket[j];
+    basket[j] = temp;
+   }
+  }
+ }
+ return merg(basket);
+}
+
+
+
+function merg(sortedArray){
+ // console.log(basket)
+ 
+ if((sortedArray.length)%2 === 0){
+   // even
+   let preMiddle = sortedArray[Math.floor((sortedArray.length - 1) / 2)];
+   let postMiddle = sortedArray[Math.floor((sortedArray.length)/2)]
+   let addTwoPointValue = preMiddle + postMiddle;
+   const evenResult = parseFloat(addTwoPointValue/2);  
+   console.log(evenResult);
+     return evenResult;
+
+ }else{
+  // old
+   let middle = sortedArray[Math.floor((sortedArray.length)/2)];
+   const oldResult = parseFloat(middle);
+     console.log(oldResult);
+   return oldResult;
+ }
+}
+
+const result = new findMedianSortedArrays(nums1,nums2);
+console.log(result);

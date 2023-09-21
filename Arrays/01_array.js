@@ -26,7 +26,7 @@ class MyArray {
     shiftItems(index){
        for(let i = index; i < this.length-1; i++){
         this.data[i] = this.data[i+1];
-       }        
+       }
     }
 }
 
@@ -36,9 +36,8 @@ newArray.push(10);
 newArray.push(20);
 newArray.push(30);
 newArray.push(40);
-newArray.push(50);
-newArray.push(60);
 newArray.pop(); // 60 should be remove
-newArray.delete(4); // 59 should be remove
+newArray.delete(3); // 60 should be remove
+newArray.delete(2);
 
 console.log(newArray)
